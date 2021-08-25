@@ -1,0 +1,13 @@
+{% extends 'template.html.twig' %}
+
+{% block central %}
+  
+  <h1>Ajouter nouveau Wish</h1>
+  {{ form_start(formWish)}}
+
+    {{ form_widget(formWish)}}
+
+    <button type='submit'>Ajouter</button>
+
+  {{ form_end(formWish)}}
+{% endblock %}

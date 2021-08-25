@@ -4,9 +4,9 @@
   <ul>
 
   <h1>WISH</h1>
-  {% for w in wish %}
+  {% for w in wishes %}
 
-<li>{{w.title }} => {{w.description }} de {{w.author }} </li>
+<li>{{w.id }} - {{w.title }} => {{w.description }} de {{w.author }} créer le  {{w.dateCreated|date("m/d/Y, H:i:s")}} </li>
 
   {% endfor %}
   </ul>
