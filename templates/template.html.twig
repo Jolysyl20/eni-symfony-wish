@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page</title>
+    <style>
+    header{
+        min-height: 80px;
+        background-color: #333;
+        color:#fff;
+    }
+    header a {color:white}
+    body{
+        margin:0;
+    }
+    </style>
+</head>
+<body>
+    <header>
+    ici le header
+    {#  path('name') #}
+    <a href="{{ path('home') }}">Home</a>
+    <a href="{{ path('about_us') }}">About Us</a>
+    <a href="{{ path('contact') }}">Contact</a>
+    <br>
+    {# definir une variable twig #}
+    {% set maroute = app.request.attributes.get('_route')%}
+    la route : {{ maroute }}
+    </header>
+    <div class="container">
+      ici le container
+      {# zone modifiable #}
+      {% block central %}
+       par default
+      {% endblock %}
+    </div>
+    <footer>
+    <br><br><br>
+    ici le footer
+    </footer>
+</body>
+</html>

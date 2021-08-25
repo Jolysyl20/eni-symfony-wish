@@ -1,0 +1,13 @@
+{% extends 'template.html.twig' %}
+
+{% block central %}
+  <ul>
+
+  <h1>WISH</h1>
+  {% for w in wish %}
+
+<li>{{w.title }} => {{w.description }} de {{w.author }} </li>
+
+  {% endfor %}
+  </ul>
+{% endblock %}
