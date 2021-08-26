@@ -10,23 +10,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page</title>
     <style>
-    header{
-        
-    }
+   @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
+ body {
+     font-family: 'Rubik', sans-serif;
+     height: 100% !important;
+     background-color: #F8F9FB !important
+ }
+
+ .container-fluid {
+     margin-top: 101px;
+     color: #000 !important
+ }
+
+ .card {
+     background-color: #F8F9FB !important
+ }
+
+ p {
+     font-size: calc(12px + (14 - 12) * ((100vw - 360px) / (1600 - 360))) !important;
+     display: fkex
+ }
+
+ h3 {
+     font-size: calc(24px + (30 - 24) * ((100vw - 360px) / (1600 - 360))) !important
+ }
+
+ .social {
+     font-size: 21px !important
+ }
+
+ .color-text {
+     color: #757575 !important
+ }
+
+ button {
+     font-size: calc(12px + (13 - 12) * ((100vw - 360px) / (1600 - 320))) !important;
+     background-color: #2CA6FB !important;
+     padding-left: calc(20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important;
+     padding-right: calc(20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important;
+     padding-top: calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important;
+     padding-bottom: calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important
+ }
+
+ button:focus {
+     -moz-box-shadow: none !important;
+     -webkit-box-shadow: none !important;
+     box-shadow: none !important;
+     outline-width: 0
+ }
+
+ footer {
+     color: #caced1 !important
+ }
+
+ li {
+     margin-top: 20px;
+     margin-bottom: 20px
+ }
+
+ .Careers {
+     cursor: pointer;
+     color: #1E88E5
+ }
+
+ .row-1 {
+     background-color: #1E242A !important
+ }
+
+ .row-2 {
+     background-color: #28323C !important
+ }
     
-    body{
-        margin:0;
-    }
+
     </style>
 </head>
-<body>
+<body  >
     <header >
     {#  path('name') #}
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <a class="navbar-brand" href="{{ path('home') }}">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
-  </button>
+    </button>
      <div class="collapse navbar-collapse" id="collapsibleNavbar">
 
     <ul class="navbar-nav">
@@ -48,20 +114,36 @@
     </ul>
     </div>
     </nav>
-    {% set maroute = app.request.attributes.get('_route')%}
+      {% set maroute = app.request.attributes.get('_route')%}
    
     </header>
-    <div class="container">
-      ici le container
+    
+    <div class="container-fluid pb-0 mb-0 justify-content-center text-light ">
+     
       {# zone modifiable #}
       {% block central %}
-       par default
+       
       {% endblock %}
     </div>
-    <footer>
+    
     <br><br><br>
-    ici le footer
+
+    <footer>
+     
+        <div class="row justify-content-center mt-0 pt-0 row-1 mb-0 px-sm-3 px-2">
+            <div class="col-12">
+                <div class="row my-4 row-1 no-gutters">
+                    <div class="col-sm-3 col-auto text-center"><small>&#9400; <strong>W<i>ish</i></strong> Software</small></div>
+                    <div class="col-md-3 col-auto "></div>
+                    <div class="col-md-3 col-auto"></div>
+                    
+                    <div class="col my-auto text-md-left text-right "> <small> no-dead@wishbeforedying.com <span><img src="lena.png" onmouseover="'" onmouseout="'" class="img-fluid " width="25"></span> <span><img src="https://i.imgur.com/N90KDYM.png" class="img-fluid " width="25"></span></small> </div>
+                </div>
+            </div>
+        </div>
     </footer>
+</div>
+    
 
 </body>
 </html>
