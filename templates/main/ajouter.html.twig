@@ -2,13 +2,20 @@
 
 {% block central %}
   
-  <h1>Ajouter nouveau Wish</h1>
-  {{ form_start(formWish, {attr: {novalidate: 'novalidate'}})}}
+  <h1 style="text-align: center; margin-bottom:2%">Add new Wish</h1>
+  <div class="col-4 border"style="margin-left:32%; margin-top:2%">
+  {{ form_start(formWish, 
+      {attr: {
+        novalidate: 'novalidate'
+        }
+      })
+  }}
 
     {{ form_widget(formWish)}}
     
 
-    <button type='submit'>Ajouter</button>
+    <button class="btn btn-success" style="margin-bottom:2%; margin-left:35%" type='submit'>Ajouter</button>
 
   {{ form_end(formWish)}}
+  </div>
 {% endblock %}

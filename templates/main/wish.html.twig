@@ -11,6 +11,8 @@
     <th scope="col">Description</th>
     <th scope="col">Author</th>
     <th scope="col">Date de création</th>
+    <th scope="col">modify</th>
+    <th scope="col">Delete</th>
   </tr>
   {% for w in wishes %}
   <tr>
@@ -18,6 +20,16 @@
     <td>{{w.description }}</td>
     <td>{{w.author }}</td>
     <td>{{w.dateCreated|date("m/d/Y, H:i:s")}}</td>
+		<td>
+			<a href="{{ path('modifyMyWish',{id : w.id })}}" class="btn btn-outline-warning">
+				<i class="fas fa-edit"></i>
+			</a>
+		</td>
+		<td>
+			<a onclick="return confirm('Supprimer :{{ w.title }} ?')" href="{{ path('deleteMyWish',{id : w.id })}}" class="btn btn-danger">
+				<i class="fas fa-trash"></i>
+			</a>
+		</td>
   </tr>
   {% endfor %}
 </table>
