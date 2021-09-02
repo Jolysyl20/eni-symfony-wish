@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AjouterController extends AbstractController
 {
     /**
-     * @Route("/add", name="add")
+     * @Route("/profile/add", name="add")
      */
     public function ajouter(Request $request, EntityManagerInterface $em): Response
     {

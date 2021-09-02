@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Wish;
+use App\Form\WishType;
 use App\Repository\WishRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,7 +15,7 @@ class WishController extends AbstractController
 {
 
     /**
-     * @Route("/wish", name="wish")
+     * @Route("/profile", name="wish")
      */
     public function wish(WishRepository $repo): Response
     {
@@ -26,20 +27,18 @@ class WishController extends AbstractController
     }
 
     /**
-     * @Route("wish/modifyMyWish/{id}", name="modifyMyWish")
+     * @Route("/profile/wish/modifyMyWish/{id}", name="modifyMyWish")
      */
 
     public function modifyMyWish(Wish $wish, Request $request, EntityManagerInterface  $em): Response
     {
-
         $formWish = $this->createForm(WishType::class, $wish);
-        $formWish->handleRequest($request);
+        $formWish->handleRequest($request); // hydrater $wish
 
         if ($formWish-> isSubmitted() && $formWish->isValid())
         {
             $wish->setIsPublished(true);
             $wish->setDateCreated(new \DateTime());
-            $em->persist($wish);
             $em->flush();
             $this->addFlash('succes', 'wish added :)');
             return $this->redirectToRoute('wish');    
@@ -50,7 +49,7 @@ class WishController extends AbstractController
         );
     }
         /**
-     * @Route("/wish/deleteMyWish/{id}", name="deleteMyWish")
+     * @Route("/profile/wish/deleteMyWish/{id}", name="deleteMyWish")
      */
     public function deleteMyWish(Wish $wish, EntityManagerInterface  $em): Response
     {
