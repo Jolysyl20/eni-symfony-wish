@@ -16,8 +16,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page</title>
+    <title>WiSH</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.ico') }}" />
     <style>
+    
    @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
 
  body {
@@ -94,10 +96,11 @@
     </style>
 </head>
 <body  >
+
     <header >
     {#  path('name') #}
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <a href="{{ path('home') }}"><img src="https://logo-marque.com/wp-content/uploads/2021/03/Wish-Logo.png"style="max-width:100px"/></a>
+            <a href="{{ path('home') }}"><img src="https://w-festival.com/templates/w-festival/images/w-fest-2021-logo.png"style="max-width:90px"/></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -126,7 +129,7 @@
                     <a class="nav-link" href="{{ path('app_register') }}"><i class="fa fa-sign-in fa-4" aria-hidden="true"></i></a>
                 {% endif %}	
                 {% if is_granted('ROLE_USER') %}
-                    <a href="{{ path('app_logout') }}"><i class="fa fa-edit"></i></a>
+                    <a href="{{ path('app_ChangeProfil',{id : app.user.id }) }}"><i class="fa fa-edit"></i></a>
                     <a href="{{ path('app_logout') }}"><i class="fa fa-sign-out"></i></a>
                 {% endif %}					
             </div>
@@ -148,7 +151,7 @@
                         <div class="col-sm-3 col-auto text-center"><small>&#9400; <strong>W<i>ish</i></strong> Software</small></div>
                         <div class="col-md-3 col-auto "></div>
                         <div class="col-md-3 col-auto"></div>
-                        <div class="col my-auto text-md-left text-right "> <small> no-dead@wishbeforedying.com   <span><a href="https://www.facebook.com/pompefunebrecasat/" target="_bank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></span></small> </div>
+                        <div class="col my-auto text-md-left text-right "> <small> no-dead@wishbeforedying.com   <span><a href="#" target="_bank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></span></small> </div>
                     </div>
                 </div>
             </div>

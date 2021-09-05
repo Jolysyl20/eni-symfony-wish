@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AjouterController extends AbstractController
 {
     /**
-     * @Route("/profile/add", name="add")
+     * @Route("/profile/add/", name="add")
      */
     public function ajouter(Request $request, EntityManagerInterface $em): Response
     {
@@ -25,6 +25,8 @@ class AjouterController extends AbstractController
         {
             $wish->setIsPublished(true);
             $wish->setDateCreated(new \DateTime());
+            $wish->setUser($this->getUser());
+            $wish->setAuthor($this->getUser()->getUsername());
             $em->persist($wish);
             $em->flush();
             $this->addFlash('succes', 'wish added :)');

@@ -2,14 +2,18 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Entity\Wish;
+use App\Form\RegistrationFormType;
 use App\Form\WishType;
+use App\Repository\UserRepository;
 use App\Repository\WishRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class WishController extends AbstractController
 {
@@ -48,6 +52,11 @@ class WishController extends AbstractController
             ['formWish' => $formWish->createView()]
         );
     }
+
+    
+   
+
+
         /**
      * @Route("/profile/wish/deleteMyWish/{id}", name="deleteMyWish")
      */
@@ -58,4 +67,9 @@ class WishController extends AbstractController
         $em->flush();
         return $this->redirectToRoute('home');
     }
+
+    
+
+
+    
 }

@@ -43,6 +43,20 @@ class AuthentificationAuthenticator extends AbstractLoginFormAuthenticator
             ]
         );
     }
+    public function authenticateID(Request $request): PassportInterface
+    {
+        $Id = $request->request->get('id', '');
+
+        $request->getSession()->set(Security::LAST_ID, $Id);
+
+        return new Passport(
+            new UserBadge($Id),
+            new PasswordCredentials($request->request->get('password', '')),
+            [
+                new CsrfTokenBadge('authenticate', $request->get('_csrf_token')),
+            ]
+        );
+    }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
